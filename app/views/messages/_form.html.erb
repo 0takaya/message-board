@@ -1,4 +1,14 @@
 <%= form_with(model: message) do |f| %>
+  <% if message.errors.any? %>
+    <dif id="error_explanation">
+      <ul>
+        <% message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </dif>
+  <% end %>
+  
   <%= f.label :content, 'メッセージ' %>
   <%= f.text_field :content %>
   
