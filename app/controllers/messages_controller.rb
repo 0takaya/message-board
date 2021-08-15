@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    @messages = Message.all
+    @pagy, @messages = pagy(Message.order(id: :dsec), items: 3)
   end
 
   def show
